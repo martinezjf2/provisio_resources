@@ -3,6 +3,8 @@
 /* Team Two
 SQL Insert Statements
 January 21, 2023
+
+To start the mysql server run this on your terminal
 mysql -u root -p */
 
 
