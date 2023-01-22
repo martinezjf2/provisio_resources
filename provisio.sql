@@ -203,3 +203,8 @@ INSERT INTO wishlist(user_id, book_id)
         (SELECT book_id FROM book WHERE book_name = 'The Fellowship of the Ring')
     );
 
+
+SELECT * FROM user;
+SELECT * FROM place;
+SELECT * FROM hotel;
+SELECT * FROM reservation;
