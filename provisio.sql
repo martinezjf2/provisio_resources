@@ -43,12 +43,12 @@ DROP TABLE IF EXISTS reservation;
 
 -- CREATE USER TABLE
 CREATE TABLE user (
-    id              INT             NOT NULL        AUTO_INCREMENT,
+    user_id              INT             NOT NULL        AUTO_INCREMENT,
     first_name      VARCHAR(75)     NOT NULL,
     last_name       VARCHAR(75)     NOT NULL,
     email           VARCHAR(255)    NOT NULL,
     passphrase      VARCHAR(255)    NOT NULL,
-    PRIMARY KEY(id)
+    PRIMARY KEY(user_id)
 );
 -- INSERT INTO SQL COMMANDS FOR USERS
 INSERT INTO user(first_name, last_name, email, passphrase)
@@ -93,15 +93,16 @@ CREATE TABLE hotel (
     price           INT             NOT NULL,
     descrip         VARCHAR(255)    NOT NULL,
     amenitites      VARCHAR(300)    NOT NULL,
-    location_id     INT             NOT NULL,
-    PRIMARY KEY(hotel_id)
-    -- May need to add a foreign key for location_id
+    place_id        INT             NOT NULL,
+    PRIMARY KEY(hotel_id),
+    FOREIGN KEY (place_id)
+        REFERENCES place(place_id)
 );
 
 
 -- INSERT INTO SQL COMMANDS
 
-INSERT INTO hotel(hotel_name, price, descrip, amenitites, location_id)
+INSERT INTO hotel(hotel_name, price, descrip, amenitites, place_id)
     VALUES(
         'Old Key West', 
         500, 
@@ -110,7 +111,7 @@ INSERT INTO hotel(hotel_name, price, descrip, amenitites, location_id)
         (SELECT place_id FROM place where city = 'Orlando')
         );
 
-INSERT INTO hotel(hotel_name, price, descrip, amenitites, location_id)
+INSERT INTO hotel(hotel_name, price, descrip, amenitites, place_id)
     VALUES(
         'Old Key West', 
         500, 
@@ -119,7 +120,7 @@ INSERT INTO hotel(hotel_name, price, descrip, amenitites, location_id)
         (SELECT place_id FROM place where city = 'Orlando')
         );
 
-INSERT INTO hotel(hotel_name, price, descrip, amenitites, location_id)
+INSERT INTO hotel(hotel_name, price, descrip, amenitites, place_id)
     VALUES(
         'Old Key West', 
         500, 
@@ -131,7 +132,21 @@ INSERT INTO hotel(hotel_name, price, descrip, amenitites, location_id)
 
 -- CREATE TABLE RESERVATIONS
 
-
+CREATE TABLE reservation (
+    reservation_id     INT             NOT NULL        AUTO_INCREMENT,
+    user_id            INT             NOT NULL,
+    hotel_id           INT             NOT NULL,
+    place_id           INT             NOT NULL,
+    adults             INT             NOT NULL,
+    children           INT             NOT NULL,
+    PRIMARY KEY(reservation_id),
+    FOREIGN KEY (user_id)
+        REFERENCES user(user_id),
+    FOREIGN KEY (hotel_id)
+        REFERENCES hotel(hotel_id),
+    FOREIGN KEY (place_id)
+        REFERENCES place(place_id)
+); 
 
 
 
