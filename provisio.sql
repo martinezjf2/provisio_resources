@@ -148,7 +148,32 @@ CREATE TABLE reservation (
         REFERENCES place(place_id)
 ); 
 
+INSERT INTO reservation(user_id, hotel_id, place_id, adults, children) 
+    VALUES (
+        (SELECT user_id FROM user WHERE first_name = 'Darell'),
+        (SELECT hotel_id FROM hotel WHERE hotel_name = 'Old Key West'),
+        (SELECT place_id FROM place WHERE city = 'Orlando'),
+        5,
+        2
+    );
 
+INSERT INTO reservation(user_id, hotel_id, place_id, adults, children) 
+    VALUES (
+        (SELECT user_id FROM user WHERE first_name = 'Darell'),
+        (SELECT hotel_id FROM hotel WHERE hotel_name = 'Old Key West'),
+        (SELECT place_id FROM place WHERE city = 'Orlando'),
+        5,
+        2
+    );
+
+INSERT INTO reservation(user_id, hotel_id, place_id, adults, children) 
+    VALUES (
+        (SELECT user_id FROM user WHERE first_name = 'Darell'),
+        (SELECT hotel_id FROM hotel WHERE hotel_name = 'Old Key West'),
+        (SELECT place_id FROM place WHERE city = 'Orlando'),
+        5,
+        2
+    );
 
 
 
