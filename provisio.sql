@@ -48,17 +48,18 @@ CREATE TABLE user (
     last_name       VARCHAR(75)     NOT NULL,
     email           VARCHAR(255)    NOT NULL,
     passphrase      VARCHAR(255)    NOT NULL,
+    points          INT             NOT NULL,
     PRIMARY KEY(user_id)
 );
 -- INSERT INTO SQL COMMANDS FOR USERS
-INSERT INTO user(first_name, last_name, email, passphrase)
-    VALUES('Darell', 'Reese', 'dreese@gmail.com', 'Python%78');
+INSERT INTO user(first_name, last_name, email, passphrase, points)
+    VALUES('Darell', 'Reese', 'dreese@gmail.com', 'Python%78', 300);
 
-INSERT INTO user(first_name, last_name, email, passphrase)
-    VALUES('Austin', 'Powers', 'yeahbaby@hotmail.com', 'hahaYEAH!');
+INSERT INTO user(first_name, last_name, email, passphrase, points)
+    VALUES('Austin', 'Powers', 'yeahbaby@hotmail.com', 'hahaYEAH!', 1200);
 
-INSERT INTO user(first_name, last_name, email, passphrase)
-    VALUES('Isabella', 'Holmes', 'holmesbella@icloud.com', 'Detective#700');
+INSERT INTO user(first_name, last_name, email, passphrase, points)
+    VALUES('Isabella', 'Holmes', 'holmesbella@icloud.com', 'Detective#700', 2560);
 
 
 
@@ -92,7 +93,7 @@ CREATE TABLE hotel (
     hotel_name      VARCHAR(75)     NOT NULL,
     price           INT             NOT NULL,
     descrip         VARCHAR(255)    NOT NULL,
-    amenitites      VARCHAR(300)    NOT NULL,
+    amenities       VARCHAR(300)    NOT NULL,
     place_id        INT             NOT NULL,
     PRIMARY KEY(hotel_id),
     FOREIGN KEY (place_id)
@@ -102,7 +103,7 @@ CREATE TABLE hotel (
 
 -- INSERT INTO SQL COMMANDS
 
-INSERT INTO hotel(hotel_name, price, descrip, amenitites, place_id)
+INSERT INTO hotel(hotel_name, price, descrip, amenities, place_id)
     VALUES(
         'Old Key West', 
         500, 
@@ -111,7 +112,7 @@ INSERT INTO hotel(hotel_name, price, descrip, amenitites, place_id)
         (SELECT place_id FROM place where city = 'Orlando')
         );
 
-INSERT INTO hotel(hotel_name, price, descrip, amenitites, place_id)
+INSERT INTO hotel(hotel_name, price, descrip, amenities, place_id)
     VALUES(
         'Provisio South Beach', 
         1000, 
@@ -120,7 +121,7 @@ INSERT INTO hotel(hotel_name, price, descrip, amenitites, place_id)
         (SELECT place_id FROM place where city = 'Miami')
         );
 
-INSERT INTO hotel(hotel_name, price, descrip, amenitites, place_id)
+INSERT INTO hotel(hotel_name, price, descrip, amenities, place_id)
     VALUES(
         'Grand Provisio', 
         2000, 
