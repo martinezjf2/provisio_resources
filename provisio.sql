@@ -175,35 +175,6 @@ INSERT INTO reservation(user_id, hotel_id, place_id, adults, children)
         0
     );
 
-
-
-
-
-
-
-
-
--- EXAMPLE FOR THE RESERVATIONS TABLE
-CREATE TABLE wishlist (
-    wishlist_id     INT             NOT NULL        AUTO_INCREMENT,
-    user_id         INT             NOT NULL        AUTO_INCREMENT,
-    book_id         INT             NOT NULL        AUTO_INCREMENT,
-    PRIMARY KEY(wishlist_id)
-    CONSTRAINT fk_book
-    FOREIGN KEY (book_id)
-        REFERENCES book(book_id),
-    CONSTRAINT fk_user
-    FOREIGN KEY (user_id)
-        REFERENCES user(user_Id)
-); 
-
-INSERT INTO wishlist(user_id, book_id) 
-    VALUES (
-        (SELECT user_id FROM user WHERE first_name = 'Bilbo'),
-        (SELECT book_id FROM book WHERE book_name = 'The Fellowship of the Ring')
-    );
-
-
 SELECT * FROM user;
 SELECT * FROM place;
 SELECT * FROM hotel;
