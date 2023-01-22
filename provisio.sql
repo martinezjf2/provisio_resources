@@ -55,10 +55,10 @@ INSERT INTO user(first_name, last_name, email, passphrase)
     VALUES('Darell', 'Reese', 'dreese@gmail.com', 'Python%78');
 
 INSERT INTO user(first_name, last_name, email, passphrase)
-    VALUES('Darell', 'Reese', 'dreese@gmail.com', 'Python%78');
+    VALUES('Austin', 'Powers', 'yeahbaby@hotmail.com', 'hahaYEAH!');
 
 INSERT INTO user(first_name, last_name, email, passphrase)
-    VALUES('Darell', 'Reese', 'dreese@gmail.com', 'Python%78');
+    VALUES('Isabella', 'Holmes', 'holmesbella@icloud.com', 'Detective#700');
 
 
 
@@ -113,20 +113,20 @@ INSERT INTO hotel(hotel_name, price, descrip, amenitites, place_id)
 
 INSERT INTO hotel(hotel_name, price, descrip, amenitites, place_id)
     VALUES(
-        'Old Key West', 
-        500, 
-        'Family fun resort style stay', 
-        'Pool, Tennis, Gym, Amusement Parks, Restaurants', 
-        (SELECT place_id FROM place where city = 'Orlando')
+        'Provisio South Beach', 
+        1000, 
+        'Adult Hideaway', 
+        'Pool, Clubs, Gym, Restaurants, Bars', 
+        (SELECT place_id FROM place where city = 'Miami')
         );
 
 INSERT INTO hotel(hotel_name, price, descrip, amenitites, place_id)
     VALUES(
-        'Old Key West', 
-        500, 
-        'Family fun resort style stay', 
-        'Pool, Tennis, Gym, Amusement Parks, Restaurants', 
-        (SELECT place_id FROM place where city = 'Orlando')
+        'Grand Provisio', 
+        2000, 
+        'Executive Business Stays', 
+        'Pool, Gym, Conference Areas, Restaurants, Free Wifi', 
+        (SELECT place_id FROM place where city = 'New York')
         );
 
 
@@ -159,20 +159,20 @@ INSERT INTO reservation(user_id, hotel_id, place_id, adults, children)
 
 INSERT INTO reservation(user_id, hotel_id, place_id, adults, children) 
     VALUES (
-        (SELECT user_id FROM user WHERE first_name = 'Darell'),
-        (SELECT hotel_id FROM hotel WHERE hotel_name = 'Old Key West'),
-        (SELECT place_id FROM place WHERE city = 'Orlando'),
-        5,
-        2
+        (SELECT user_id FROM user WHERE first_name = 'Isabella'),
+        (SELECT hotel_id FROM hotel WHERE hotel_name = 'Provisio South Beach'),
+        (SELECT place_id FROM place WHERE city = 'Miami'),
+        10,
+        6
     );
 
 INSERT INTO reservation(user_id, hotel_id, place_id, adults, children) 
     VALUES (
-        (SELECT user_id FROM user WHERE first_name = 'Darell'),
-        (SELECT hotel_id FROM hotel WHERE hotel_name = 'Old Key West'),
-        (SELECT place_id FROM place WHERE city = 'Orlando'),
-        5,
-        2
+        (SELECT user_id FROM user WHERE first_name = 'Austin'),
+        (SELECT hotel_id FROM hotel WHERE hotel_name = 'Grand Provisio'),
+        (SELECT place_id FROM place WHERE city = 'New York'),
+        2,
+        0
     );
 
 
