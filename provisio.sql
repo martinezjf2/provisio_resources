@@ -40,6 +40,8 @@ DROP TABLE IF EXISTS hotel;
 DROP TABLE IF EXISTS place;
 DROP TABLE IF EXISTS reservation;
 
+DROP TABLE IF EXISTS history;
+
 
 -- CREATE USER TABLE
 CREATE TABLE user (
@@ -176,7 +178,44 @@ INSERT INTO reservation(user_id, hotel_id, place_id, adults, children)
         0
     );
 
+
+
+CREATE TABLE history (
+    id                        INT              NOT NULL        AUTO_INCREMENT,
+    reservation_id            INT              NOT NULL,
+    points                    INT              NOT NULL,
+    user_id                   INT              NOT NULL, 
+    PRIMARY KEY(id),
+    FOREIGN KEY(user_id) 
+        REFERENCES user(user_id)
+);
+
+INSERT INTO history(reservation_id, points, user_id) 
+    VALUES (
+        (SELECT reservation_id FROM reservation WHERE adults = 10),
+        200,
+        (SELECT user_id FROM reservation WHERE adults = 10)
+    );
+
+INSERT INTO history(reservation_id, points, user_id) 
+    VALUES (
+        (SELECT reservation_id FROM reservation WHERE adults = 5),
+        1800,
+        (SELECT user_id FROM reservation WHERE adults = 5)
+    );
+
+INSERT INTO history(reservation_id, points, user_id) 
+    VALUES (
+        (SELECT reservation_id FROM reservation WHERE adults = 2),
+        2840,
+        (SELECT user_id FROM reservation WHERE adults = 2)
+    );
+
+
+
 SELECT * FROM user;
 SELECT * FROM place;
 SELECT * FROM hotel;
 SELECT * FROM reservation;
+SELECT * FROM history;
+
